@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://57j8nr4itsbe"]
+
+[ext_resource type="PackedScene" uid="uid://b2juxiagoxb8v" path="res://Personajes/franz.tscn" id="1_lr7tg"]
+[ext_resource type="Texture2D" uid="uid://qdkk6r0sjl36" path="res://Sprites/suelin.png" id="2_ha3vh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slpet"]
+shading_mode = 0
+albedo_texture = ExtResource("2_ha3vh")
+uv1_scale = Vector3(10, 10, 10)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Franz" parent="." instance=ExtResource("1_lr7tg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.108106, 1.06284, 0.670763)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.29433, 0.22583, -0.617626)
+size = Vector3(10.9128, 0.54834, 8.78003)
+material = SubResource("StandardMaterial3D_slpet")
