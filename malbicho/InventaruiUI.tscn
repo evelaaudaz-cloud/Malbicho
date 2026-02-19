@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://l23cwr7xj2cg"]
+
+[ext_resource type="Script" uid="uid://byhocfjnpw5qy" path="res://inventario.gd" id="1_bxnpw"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qk7bu"]
+blend_mode = 1
+light_mode = 1
+
+[node name="InventarioUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("1_bxnpw")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+material = SubResource("CanvasItemMaterial_qk7bu")
+offset_right = 595.0
+offset_bottom = 474.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 3

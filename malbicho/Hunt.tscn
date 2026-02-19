@@ -1,12 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://57j8nr4itsbe"]
+[gd_scene load_steps=9 format=3 uid="uid://57j8nr4itsbe"]
 
 [ext_resource type="PackedScene" uid="uid://b2juxiagoxb8v" path="res://Personajes/franz.tscn" id="1_lr7tg"]
 [ext_resource type="Texture2D" uid="uid://qdkk6r0sjl36" path="res://Sprites/suelin.png" id="2_ha3vh"]
+[ext_resource type="Texture2D" uid="uid://dmgyi26r6nvus" path="res://Sprites/roca.png" id="3_slpet"]
+[ext_resource type="PackedScene" uid="uid://l23cwr7xj2cg" path="res://InventaruiUI.tscn" id="4_mnfd2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slpet"]
 shading_mode = 0
 albedo_texture = ExtResource("2_ha3vh")
 uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mnfd2"]
+panorama = ExtResource("3_slpet")
+
+[sub_resource type="Sky" id="Sky_n78gp"]
+sky_material = SubResource("PanoramaSkyMaterial_mnfd2")
+process_mode = 3
+
+[sub_resource type="Environment" id="Environment_ha3vh"]
+background_mode = 2
+sky = SubResource("Sky_n78gp")
 
 [node name="Node3D" type="Node3D"]
 
@@ -15,5 +28,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.108106, 1.06284, 0.670763)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.29433, 0.22583, -0.617626)
+use_collision = true
 size = Vector3(10.9128, 0.54834, 8.78003)
 material = SubResource("StandardMaterial3D_slpet")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.957742, -0.287628, 0, 0.287628, 0.957742, -2.29433, 1.11213, -7.55076)
+use_collision = true
+size = Vector3(10.9128, 0.54834, 8.78003)
+material = SubResource("StandardMaterial3D_slpet")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ha3vh")
+
+[node name="InventarioUI" parent="." instance=ExtResource("4_mnfd2")]
